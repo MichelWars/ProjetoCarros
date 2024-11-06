@@ -1,0 +1,16 @@
+{% extends "base.html" %}<!-- Herda o template base da app principal. -->
+
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %} <!-- Proteção do django contra ataques.  -->
+    
+    <table>
+    {{form.as_table}} <!-- Usando o form criado na view. -->    
+    </table>
+    
+    <input type="submit" value="Enviar">
+</form>
+{% endblock %}
+
+
