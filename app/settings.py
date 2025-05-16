@@ -20,7 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b5qwng_gqegnz(4p33)f#(wh7q6dtf=el0fn$8lgfjn9i1-flo'
+SECRET_KEY = (
+    'django-insecure-b5qwng_gqegnz(4p33)f#(wh7q6dtf=el0fn$8lgfjn9i1-flo'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,11 +85,10 @@ DATABASES = {
         'PASSWORD': 'uninove2024',
         'HOST': 'localhost',
         'PORT': '5432',
-        'USE_TZ': True, 
-        'TIME_ZONE': 'America/Sao_Paulo', 
-        }
+        'USE_TZ': True,
+        'TIME_ZONE': 'America/Sao_Paulo',
     }
-
+}
 
 
 # Password validation
@@ -125,12 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #manage.py collectstatic quando for subir para produção
+STATIC_ROOT = os.path.join(
+    BASE_DIR, 'staticfiles'
+)   # manage.py collectstatic quando for subir para produção
 
-STATICFILES_DIRS = [
-    
-    os.path.join(BASE_DIR , "static")
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

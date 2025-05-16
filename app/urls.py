@@ -14,19 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from cars.views import CarsListView, NewCarView, CarDetailView, CarUpdateView,CarDeleteView
-from accounts.views import register_view, login_view, logout_view
+from django.contrib import admin
+from django.urls import path
 
-
-
+from accounts.views import login_view, logout_view, register_view
+from cars.views import (
+    CarDeleteView,
+    CarDetailView,
+    CarsListView,
+    CarUpdateView,
+    NewCarView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cars/', CarsListView.as_view(), name='cars_list'),#url, função view, nome da rota
+    path(
+        'cars/', CarsListView.as_view(), name='cars_list'
+    ),  # url, função view, nome da rota
     path('new_car/', NewCarView.as_view(), name='new_car'),
     path('register/', register_view, name='register'),
     path('login/', login_view, name='login'),
@@ -34,4 +40,4 @@ urlpatterns = [
     path('car/<int:pk>/', CarDetailView.as_view(), name='car_detail'),
     path('car/<int:pk>/update/', CarUpdateView.as_view(), name='car_update'),
     path('car/<int:pk>/delete/', CarDeleteView.as_view(), name='car_delete'),
-]   +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
